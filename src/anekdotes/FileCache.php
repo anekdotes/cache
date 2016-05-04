@@ -62,7 +62,7 @@ class FileCache implements CacheInterface
   }
 
   /**
-   * Obtain the time of last modification
+   * Obtain the time of last modification.
    *
    * @param  string $key The key of the key-value pair used
    *
@@ -104,6 +104,7 @@ class FileCache implements CacheInterface
 
       if (time() >= $expire) {
           $this->forget($key);
+
           return false;
       }
 
@@ -210,10 +211,12 @@ class FileCache implements CacheInterface
   }
 
   /**
-   * Deletes all the files and directories in a directory, recursively
+   * Deletes all the files and directories in a directory, recursively.
+   *
    * @param    \FilesystemIterator  $directoryItem  The Filesystem directory we'll be deleting from
    */
-  private function deleteDirContent($directoryItem){
+  private function deleteDirContent($directoryItem)
+  {
       $items = new \FilesystemIterator($directoryItem->getPathname());
       foreach ($items as $item) {
           if ($item->isDir()) {

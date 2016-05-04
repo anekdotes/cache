@@ -16,18 +16,19 @@ use PHPUnit_Framework_TestCase;
 
 class FileCacheTest extends PHPUnit_Framework_TestCase
 {
-
-    public static function delTree($dir) {
-        $files = array_diff(scandir($dir), array('.','..'));
+    public static function delTree($dir)
+    {
+        $files = array_diff(scandir($dir), ['.', '..']);
         foreach ($files as $file) {
-            (is_dir("$dir/$file")) ? FileCacheTest::delTree("$dir/$file") : unlink("$dir/$file");
+            (is_dir("$dir/$file")) ? self::delTree("$dir/$file") : unlink("$dir/$file");
         }
+
         return rmdir($dir);
     }
 
     protected function tearDown()
     {
-        FileCacheTest::delTree('tmp');
+        self::delTree('tmp');
     }
 
     protected function setUp()
@@ -44,7 +45,7 @@ class FileCacheTest extends PHPUnit_Framework_TestCase
 
     public function testPath()
     {
-        $this->assertEquals($this->cache->path('Test'), 'tmp/' . substr(md5('Test'), 0, 2) . '/' . substr(md5('Test'), 2, 2) . '/' . md5('Test'));
+        $this->assertEquals($this->cache->path('Test'), 'tmp/'.substr(md5('Test'), 0, 2).'/'.substr(md5('Test'), 2, 2).'/'.md5('Test'));
     }
 
     public function testTime()
@@ -113,5 +114,4 @@ class FileCacheTest extends PHPUnit_Framework_TestCase
         $this->expectException(\LogicException::class);
         $this->cache->decrement('Toaster');
     }
-
 }
