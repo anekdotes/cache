@@ -111,13 +111,13 @@ class FileCacheTest extends PHPUnit_Framework_TestCase
 
     public function testIncrement()
     {
-        $this->expectException(\LogicException::class);
+        $this->setExpectedException(\LogicException::class);
         $this->cache->increment('Toaster');
     }
 
     public function testDecrement()
     {
-        $this->expectException(\LogicException::class);
+        $this->setExpectedException(\LogicException::class);
         $this->cache->decrement('Toaster');
     }
 }
