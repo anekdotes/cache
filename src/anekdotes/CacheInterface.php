@@ -1,4 +1,15 @@
-<?php namespace Sitebase\Cache;
+<?php
+
+/*
+ * This file is part of the Cache package.
+ *
+ * (c) Anekdotes Communication inc. <info@anekdotes.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Sitebase\Cache;
 
 /**
  * Interface used to create different kind of caching services
