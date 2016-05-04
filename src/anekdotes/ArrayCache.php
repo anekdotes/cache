@@ -93,7 +93,7 @@ class ArrayCache implements CacheInterface
    */
   public function forever($key, $value)
   {
-      $this->set($key, $value);
+      $this->set($key, $value, 99999999);
   }
 
   /**
