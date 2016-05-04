@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Sitebase\Cache;
+namespace Anekdotes\Cache;
 
 /**
  * Interface used to create different kind of caching services

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Sitebase\Cache;
+namespace Anekdotes\Cache;
 
 /**
  * Class storing the cache service in an array
