@@ -50,6 +50,9 @@ class FileCacheTest extends PHPUnit_Framework_TestCase
 
     public function testTime()
     {
+        //Test when file does not exist
+        $this->assertEquals($this->cache->time('Toaster'), '');
+        //Standard function test
         $this->cache->set('Toaster', 'Test', 5);
         $this->assertEquals($this->cache->time('Toaster'), time());
     }
@@ -101,6 +104,9 @@ class FileCacheTest extends PHPUnit_Framework_TestCase
         $this->cache->flush();
         $this->assertFalse($this->cache->has('Toaster'));
         $this->assertFalse($this->cache->has('Tester'));
+        //Test flush with a cache on a dir that does not exists
+        $failFlushCache = new FileCache('rip');
+        $this->assertFalse($failFlushCache->flush());
     }
 
     public function testIncrement()
