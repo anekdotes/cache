@@ -20,7 +20,7 @@ Install via composer into your project:
 Declare your Cache object depending on your Driver. After construction, all Cache objects can be manipulated the same way.
 
     use Anekdotes\Cache\FileCache;
-    $path = 'tmp/cache';
+    $path = 'tmp/cache/'; //The slash at the end is IMPORTANT. MAKE SURE YOU HAVE IT!
     $cache = new FileCache($path);
     $key = 'Toaster';
     $value = 'Test';
