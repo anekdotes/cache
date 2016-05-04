@@ -62,11 +62,11 @@ class FileCache implements CacheInterface
   }
 
   /**
-   * Checks the expiration date for the provided key file.
+   * Obtain the time of last modification
    *
    * @param  string $key The key of the key-value pair used
    *
-   * @return int         The integer expiration date (represented in second) of the key.
+   * @return int          the time of last modification (represented in second) of the key.
    */
   public function time($key)
   {
@@ -102,6 +102,11 @@ class FileCache implements CacheInterface
           return false;
       }
 
+      if (time() >= $expire) {
+          $this->forget($key);
+          return false;
+      }
+
       return strlen($contents) > 0;
   }
 
@@ -127,7 +132,7 @@ class FileCache implements CacheInterface
       }
 
       if (time() >= $expire) {
-          $this->forget($expire);
+          $this->forget($key);
 
           return;
       }
@@ -144,11 +149,11 @@ class FileCache implements CacheInterface
    */
   public function set($key, $value, $minutes)
   {
-      $value = $this->expiration($key).serialize($value);
+      $value = $this->expiration($minutes).serialize($value);
       try {
           $dirname = dirname($path = $this->path($key));
           if (!file_exists($dirname)) {
-              mkdir($dirname, 0777, true);
+              mkdir($dirname, 0775, true);
           }
       } catch (\Exception $e) {
       }
@@ -164,7 +169,7 @@ class FileCache implements CacheInterface
    */
   public function forever($key, $value)
   {
-      $this->put($key, $value, 0);
+      $this->set($key, $value, 0);
   }
 
   /**
@@ -192,10 +197,27 @@ class FileCache implements CacheInterface
           return false;
       }
 
-      $items = new FilesystemIterator($this->directory);
+      $items = new \FilesystemIterator($this->directory);
 
       foreach ($items as $item) {
           if ($item->isDir()) {
+              $this->deleteDirContent($item);
+              rmdir($item->getPathname());
+          } else {
+              unlink($item->getPathname());
+          }
+      }
+  }
+
+  /**
+   * Deletes all the files and directories in a directory, recursively
+   * @param    \FilesystemIterator  $directoryItem  The Filesystem directory we'll be deleting from
+   */
+  private function deleteDirContent($directoryItem){
+      $items = new \FilesystemIterator($directoryItem->getPathname());
+      foreach ($items as $item) {
+          if ($item->isDir()) {
+              $this->deleteDirContent($item);
               rmdir($item->getPathname());
           } else {
               unlink($item->getPathname());
