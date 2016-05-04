@@ -1,4 +1,4 @@
-# Anekdotes Meta
+# Anekdotes Cache
 
 [![Latest Stable Version](https://poser.pugx.org/anekdotes/cache/v/stable)](https://packagist.org/packages/anekdotes/cache)
 [![Build Status](https://travis-ci.org/anekdotes/cache.svg)](https://travis-ci.org/anekdotes/cache)
