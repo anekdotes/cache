@@ -154,7 +154,9 @@ class FileCache implements CacheInterface
       try {
           $dirname = dirname($path = $this->path($key));
           if (!file_exists($dirname)) {
+              $oldmask = umask(0);
               mkdir($dirname, 0775, true);
+              umask($oldmask);
           }
       } catch (\Exception $e) {
       }
