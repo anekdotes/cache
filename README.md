@@ -6,6 +6,7 @@
 [![StyleCI](https://styleci.io/repos/58052897/shield?style=flat)](https://styleci.io/repos/58052897)
 [![License](https://poser.pugx.org/anekdotes/cache/license)](https://packagist.org/packages/anekdotes/cache)
 [![Total Downloads](https://poser.pugx.org/anekdotes/cache/downloads)](https://packagist.org/packages/anekdotes/cache)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6d755b74e6fc466db5d7f8852abf0142)](https://www.codacy.com/app/steve-gagnev4si/cache?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=anekdotes/cache&amp;utm_campaign=Badge_Grade)
 
 Allows caching using different drivers
 
