@@ -66,7 +66,7 @@ class FileCache implements CacheInterface
    *
    * @param  string $key The key of the key-value pair used
    *
-   * @return int          the time of last modification (represented in second) of the key.
+   * @return int          the time of last modification (represented in second) of the key
    */
   public function time($key)
   {

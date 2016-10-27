@@ -1,1 +1,21 @@
 preset: recommended
+
+disabled:
+  - class_definition
+  - declare_equal_normalize
+  - hash_to_slash_comment
+  - lowercase_cast
+  - method_separation
+  - native_function_casing
+  - no_empty_phpdoc
+  - no_spaces_inside_offset
+  - no_trailing_whitespace_in_comment
+  - no_unreachable_default_argument_value
+  - no_useless_return
+  - normalize_index_brace
+  - phpdoc_single_line_var_spacing
+  - psr4
+  - short_scalar_cast
+  - single_class_element_per_statement
+  - space_after_semicolon
+  - switch_case_semicolon_to_colon
