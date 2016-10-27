@@ -10,7 +10,7 @@ before_script:
   - travis_retry composer install --no-interaction --prefer-source --dev
 
 script:
-  - vendor/bin/phpunit --coverage-clover=coverage.xml
+  - vendor/bin/phpunit Tests --coverage-clover=coverage.xml
 
 after_script:
   - php vendor/bin/codacycoverage clover coverage.xml
