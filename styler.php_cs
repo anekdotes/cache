@@ -15,28 +15,28 @@ return Symfony\CS\Config\Config::create()
       'return',
       'braces',
       'spaces_cast',
-      //'class_definition???????',
+      'class_definition',
       'concat_without_spaces',
-      //'declare_equal_normalize??????',
+      'declare_equal_normalize',
       'elseif',
       'encoding',
       'short_tag',
       'function_declaration',
       'function_typehint_space',
-      //'hash_to_slash_comment????',
+      'hash_to_slash_comment',
       'include',
-      //'lowercase_cast?????',
+      'lowercase_cast',
       'lowercase_constants',
       'lowercase_keywords',
       'method_argument_space',
       //'method_separation?????',
-      //'native_function_casing???',
+      'native_function_casing',
       'new_with_braces',
       'join_function', //instead of no_alias_functions
       'no_blank_lines_after_class_opening',
       'no_empty_lines_after_phpdocs',
       'php_closing_tag',
-      //'no_empty_phpdoc???',
+      'no_empty_phpdoc',
       'duplicate_semicolon', //instead of no_empty_statement
       'extra_empty_lines', //instead of no_extra_consecutive_blank_lines
       'remove_leading_slash_use', //instead of no_leading_import_slash
@@ -51,11 +51,11 @@ return Symfony\CS\Config\Config::create()
       'list_commas', //no_trailing_comma_in_list_call
       'single_array_no_trailing_comma', //no_trailing_comma_in_singleline_array
       'trailing_spaces', //no_trailing_whitespace
-      //'no_trailing_whitespace_in_comment???',
+      'no_trailing_whitespace_in_comment',
       'unneeded_control_parentheses', //no_unneeded_control_parentheses
-      //'no_unreachable_default_argument_value??????',
+      'method_argument_default_value', //no_unreachable_default_argument_value
       'unused_use', //no_unused_imports
-      //'no_useless_return????',
+      'no_useless_return',
       'array_element_no_space_before_comma', //no_whitespace_before_comma_in_array
       'whitespacy_lines', //no_whitespace_in_blank_line
       //'normalize_index_brace?????',
@@ -69,7 +69,7 @@ return Symfony\CS\Config\Config::create()
       'phpdoc_order',
       'phpdoc_scalar',
       'phpdoc_separation',
-      //'phpdoc_single_line_var_spacing?????',
+      'phpdoc_single_line_var_spacing',
       'phpdoc_short_description', //phpdoc_summary
       'phpdoc_to_comment',
       'phpdoc_trim',
@@ -80,7 +80,7 @@ return Symfony\CS\Config\Config::create()
       //'psr4?????',
       'self_accessor',
       'short_array_syntax',
-      //'short_scalar_cast?????',
+      'short_scalar_cast',
       'empty_return', //simplified_null_return
       'eof_ending', //single_blank_line_at_eof
       'single_blank_line_before_namespace',
@@ -90,7 +90,7 @@ return Symfony\CS\Config\Config::create()
       'single_quote',
       //'space_after_semicolon????',
       'standardize_not_equal', //standardize_not_equals
-      //'switch_case_semicolon_to_colon????',
+      'switch_case_semicolon_to_colon',
       'switch_case_space',
       'ternary_spaces', //ternary_operator_spaces
       'multiline_array_trailing_comma', //trailing_comma_in_multiline_array
