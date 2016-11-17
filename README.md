@@ -20,19 +20,26 @@ Install via composer into your project:
 
 Declare your Cache object depending on your Driver. After construction, all Cache objects can be manipulated the same way.
 
-    use Anekdotes\Cache\FileCache;
-    $path = 'tmp/cache/'; //The slash at the end is IMPORTANT. MAKE SURE YOU HAVE IT!
-    $cache = new FileCache($path);
-    $key = 'Toaster';
-    $value = 'Test';
-    $minutes = 5;
-    $cache->set($key, $value, $minutes);
-    $cache->get('Toaster'); //Returns 'Test' if executed before 5 minutes after previous call. Otherwise returns ''
-    $cache->forget('Toaster');
-    $cache->has('Toaster'); //Currently returns false. Would have returned true if we didn't use forget and we were still in the 5 minutes range.
+```php
+use Anekdotes\Cache\FileCache;
+$path = 'tmp/cache/'; //The slash at the end is IMPORTANT. MAKE SURE YOU HAVE IT!
+$cache = new FileCache($path);
+$key = 'Toaster';
+$value = 'Test';
+$minutes = 5;
+$cache->set($key, $value, $minutes);
+$cache->get('Toaster'); //Returns 'Test' as long as this call is made in a 5 minute time-frame past the previous set call.
+$cache->time('Toaster'); //Return the datetime object of when this key has been set
+$cache->forget('Toaster');
+$cache->has('Toaster'); //Returns false.
+```
 
 ## Notes
 
-* The ArrayCache driver does not analyze expiration time. This means all array cached objects last forever.
+* The ArrayCache driver does not currently analyze expiration time. This means all array cached objects last forever.
 
 * The FileCache driver does not implement the increment and decrement functions. Both functions throw LogicException under this driver.
+
+* Setting a cache's expiration to zero will make it never expire. Using ```$cache->forever()````does the same thing.
+
+* You can use ```$cache->flush()``` to remove all data in the cache.
