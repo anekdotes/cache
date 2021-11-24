@@ -12,12 +12,12 @@
 namespace Tests;
 
 use Anekdotes\Cache\ArrayCache;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @runTestsInSeparateProcesses
  */
-class ArrayCacheTest extends PHPUnit_Framework_TestCase
+final class ArrayCacheTest extends TestCase
 {
     public function testGetSet()
     {
